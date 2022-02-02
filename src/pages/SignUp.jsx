@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
+import { toast } from "react-toastify";
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -47,7 +48,7 @@ function SignUp() {
 
             navigate("/");
         } catch (error) {
-            console.log(error);
+            toast.error("Something went wrong with regestration");
         }
     };
 
@@ -96,20 +97,21 @@ function SignUp() {
                     <Link to="/forgot-password" className="forgotPasswordLink">
                         Forgot Password
                     </Link>
-                    <div className="signInBar">
-                        <p className="signInText">Sign Up</p>
+                    <div className="signUpBar">
+                        <p className="signUpText">Sign Up</p>
+
+                        <button className="signUpButton">
+                            <ArrowRightIcon
+                                fill="#ffffff"
+                                width="34px"
+                                height="34px"
+                            />
+                        </button>
                     </div>
-                    <button className="signInButton">
-                        <ArrowRightIcon
-                            fill="#ffffff"
-                            width="34px"
-                            height="34px"
-                        />
-                    </button>
                 </form>
                 {/**GOOGLE AUNTHETICATION */}
-                <Link to="/sign-up" className="registerLink">
-                    Sign Up Instead
+                <Link to="/signin" className="registerLink">
+                    Sign In Instead
                 </Link>
             </div>
         </>

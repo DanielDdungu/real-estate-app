@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
@@ -33,7 +34,7 @@ function SignIn() {
                 navigate("/");
             }
         } catch (error) {
-            console.log(error);
+            toast.error("Wrong User Credentials");
         }
     };
 
@@ -74,20 +75,21 @@ function SignIn() {
                     <Link to="/forgot-password" className="forgotPasswordLink">
                         Forgot Password
                     </Link>
-                    <div className="signUpBar">
-                        <p className="signUpText">Sign In</p>
+                    <div className="signInBar">
+                        <p className="signInText">Sign In</p>
+
+                        <button className="signInButton">
+                            <ArrowRightIcon
+                                fill="#ffffff"
+                                width="34px"
+                                height="34px"
+                            />
+                        </button>
                     </div>
-                    <button className="signUpButton">
-                        <ArrowRightIcon
-                            fill="#ffffff"
-                            width="34px"
-                            height="34px"
-                        />
-                    </button>
                 </form>
                 {/**GOOGLE AUNTHETICATION */}
                 <Link to="/signup" className="registerLink">
-                    Sign In Instead
+                    Sign Up Instead
                 </Link>
             </div>
         </>

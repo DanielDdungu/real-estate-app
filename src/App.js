@@ -3,6 +3,7 @@ import Explore from "./pages/Explore";
 import ForgotPassword from "./pages/ForgotPassword";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import Offers from "./pages/Offers";
+import Category from "./pages/Category";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -20,6 +21,10 @@ function App() {
                         element={<ForgotPassword />}
                     />
                     <Route path="/offers" element={<Offers />} />
+                    <Route
+                        path="/category/:categoryName"
+                        element={<Category />}
+                    />
                     <Route path="/profile" element={<PrivateRoute />}>
                         <Route path="/profile" element={<Profile />} />
                     </Route>

@@ -9,6 +9,7 @@ import {
     updateProfile,
 } from "firebase/auth";
 import { db } from "../firebase.config";
+import OAuth from "../components/OAuth";
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 
 function SignUp() {
@@ -94,7 +95,7 @@ function SignUp() {
                             }
                         />
                     </div>
-                    <Link to="/forgot-password" className="forgotPasswordLink">
+                    <Link to="/forgotpassword" className="forgotPasswordLink">
                         Forgot Password
                     </Link>
                     <div className="signUpBar">
@@ -110,6 +111,7 @@ function SignUp() {
                     </div>
                 </form>
                 {/**GOOGLE AUNTHETICATION */}
+                <OAuth />
                 <Link to="/signin" className="registerLink">
                     Sign In Instead
                 </Link>

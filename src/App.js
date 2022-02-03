@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Explore from "./pages/Explore";
 import ForgotPassword from "./pages/ForgotPassword";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 import Offers from "./pages/Offers";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
@@ -19,7 +20,10 @@ function App() {
                         element={<ForgotPassword />}
                     />
                     <Route path="/offers" element={<Offers />} />
-                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/profile" element={<PrivateRoute />}>
+                        <Route path="/profile" element={<Profile />} />
+                    </Route>
+
                     <Route path="/signin" element={<SignIn />} />
                     <Route path="/signup" element={<SignUp />} />
                 </Routes>

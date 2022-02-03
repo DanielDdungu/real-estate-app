@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import OAuth from "../components/OAuth";
 function SignIn() {
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({ email: "", password: "" });
@@ -72,7 +73,7 @@ function SignIn() {
                             }
                         />
                     </div>
-                    <Link to="/forgot-password" className="forgotPasswordLink">
+                    <Link to="/forgotpassword" className="forgotPasswordLink">
                         Forgot Password
                     </Link>
                     <div className="signInBar">
@@ -88,6 +89,7 @@ function SignIn() {
                     </div>
                 </form>
                 {/**GOOGLE AUNTHETICATION */}
+                <OAuth />
                 <Link to="/signup" className="registerLink">
                     Sign Up Instead
                 </Link>
